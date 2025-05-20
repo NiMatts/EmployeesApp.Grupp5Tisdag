@@ -46,19 +46,25 @@ namespace EmployeesApp.Web.Services
             employees.Add(employee);
         }
 
-        public IndexVM GetIndexVM()
+        public IndexVM[] GetIndexVM()
         {
-            var model = new IndexVM()
+            var model = employees.Select(x => new IndexVM()
             {
-                EmployeeDatas = employees.Select(e =>
-                new EmployeeDataVM()
-                {
-                    Id = e.Id,
-                    Name = e.Name,
-                    Email = e.Email,
-                    ShowAsHighlighted = e.Email.StartsWith("admin")
-                }).ToArray()
-            };
+                Id = x.Id,
+                Name = x.Name,
+                Email = x.Email
+            }).ToArray();
+            //var model = new IndexVM()
+            //{
+            //    EmployeeDatas = employees.Select(e =>
+            //    new EmployeeDataVM()
+            //    {
+            //        Id = e.Id,
+            //        Name = e.Name,
+            //        Email = e.Email,
+            //        ShowAsHighlighted = e.Email.StartsWith("admin")
+            //    }).ToArray()
+            //};
 
             return model;
         }
