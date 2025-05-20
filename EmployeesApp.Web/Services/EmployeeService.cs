@@ -69,7 +69,10 @@ namespace EmployeesApp.Web.Services
 
             return model;
         }
-        public Employee GetById(int id) => employees
-            .Single(e => e.Id == id);
+        public DetailsVM GetById(int id)
+        {
+            var employee = employees.Single(e => e.Id == id);
+            return new DetailsVM() { Id = id, Name = employee.Name, Email = employee.Email };
+        } 
     }
 }

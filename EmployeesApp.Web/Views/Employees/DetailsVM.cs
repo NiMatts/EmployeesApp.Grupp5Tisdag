@@ -1,15 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
-
-namespace EmployeesApp.Web.Models
+﻿namespace EmployeesApp.Web.Views.Employees
 {
-    public class Employee
+    public class DetailsVM
     {
         public int Id { get; set; }
-
         public string Name { get; set; } = null!;
-
         public string Email { get; set; } = null!;
-
     }
 }
