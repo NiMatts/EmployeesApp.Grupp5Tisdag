@@ -52,7 +52,8 @@ namespace EmployeesApp.Web.Services
             {
                 Id = x.Id,
                 Name = x.Name,
-                Email = x.Email
+                Email = x.Email,
+                ShowAsHighlighted = x.Email.StartsWith("admin")
             }).ToArray();
             //var model = new IndexVM()
             //{
