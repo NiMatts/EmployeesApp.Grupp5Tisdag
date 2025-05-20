@@ -12,7 +12,7 @@ namespace EmployeesApp.Web.Services
             {
                 Id = 562,
                 Name = "Anders Hejlsberg",
-                Email = "a.h@outlook.com",
+                Email = "admin.h@outlook.com",
             },
             new Employee()
             {
