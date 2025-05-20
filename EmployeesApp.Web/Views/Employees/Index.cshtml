@@ -12,9 +12,11 @@
     @if (employee.ShowAsHighlighted)
             {
                 <script>
-                        document.getElementById(@employee.Id).style.color = "red";
+                //if(@employee.ShowAsHighlighted) 
+                document.getElementById(@employee.Id).style.color = "red";
 
-                </script>}
+                </script>
+            }
                 
                              
                 
