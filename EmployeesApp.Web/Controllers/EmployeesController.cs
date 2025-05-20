@@ -23,11 +23,17 @@ namespace EmployeesApp.Web.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create(Employee employee)
+        public IActionResult Create(CreateVM createVM)
         {
             if (!ModelState.IsValid)
                 return View();
 
+            var employee = new Employee()
+            {
+                Id = service.GetIndexVM().Max(x => x.Id + 1),
+                Name = createVM.Name,
+                Email = createVM.Email
+            };
             service.Add(employee);
             return RedirectToAction(nameof(Index));
         }
