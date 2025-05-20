@@ -1,4 +1,6 @@
 ﻿using EmployeesApp.Web.Models;
+using EmployeesApp.Web.Views.Employees;
+using static EmployeesApp.Web.Views.Employees.IndexVM;
 
 namespace EmployeesApp.Web.Services
 {
@@ -44,10 +46,22 @@ namespace EmployeesApp.Web.Services
             employees.Add(employee);
         }
 
-        public Employee[] GetAll() => employees
-            .OrderBy(e => e.Name)
-            .ToArray();
+        public IndexVM GetIndexVM()
+        {
+            var model = new IndexVM()
+            {
+                EmployeeDatas = employees.Select(e =>
+                new EmployeeDataVM()
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    Email = e.Email,
+                    ShowAsHighlighted = e.Email.StartsWith("admin")
+                }).ToArray()
+            };
 
+            return model;
+        }
         public Employee GetById(int id) => employees
             .Single(e => e.Id == id);
     }

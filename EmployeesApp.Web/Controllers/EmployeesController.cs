@@ -12,17 +12,7 @@ namespace EmployeesApp.Web.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            var model = new IndexVM() {
-                EmployeeDatas = service.GetAll().Select(e =>
-                new IndexVM.EmployeeDataVM() {
-                    Id = e.Id, 
-                    Name = e.Name, 
-                    ShowAsHighlighted = e.Email.Contains("adnim") 
-                }).ToArray() };
-
-            //foreach (var emp in model)
-            //    Console.WriteLine($"{emp.Name}: {emp.Id}");
-
+            var model = service.GetIndexVM();
             return View(model);
         }
 
